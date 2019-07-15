@@ -7,7 +7,12 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Tasks')),
-      body: TaskList()
+      body: TaskList(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FloatingActionButton(
+        onPressed: null,
+        child: Icon(Icons.add)
+      ),
     );
   }
 }

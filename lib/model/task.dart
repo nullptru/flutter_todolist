@@ -15,4 +15,9 @@ class Task {
     this.updateTime = this.createdTime;
   }
 
+  toggleTask() {
+    finished = !finished;
+    this.updateTime = DateTime.now();
+  }
+
 }

@@ -1,4 +1,5 @@
 
+import 'package:base_form/main.dart';
 import 'package:base_form/screens/task_list.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +11,9 @@ class Home extends StatelessWidget {
       body: TaskList(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
-        onPressed: null,
+        onPressed: (){
+          Navigator.pushNamed(context, NewTaskRoute);
+        },
         child: Icon(Icons.add)
       ),
     );

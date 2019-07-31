@@ -8,7 +8,7 @@ class TaskList extends StatefulWidget {
 }
 
 class _TaskListState extends State<TaskList> {
-  List<Task> unFinishedTasks = [Task(), Task(), Task()];
+  List<Task> unFinishedTasks = [Task(content: '这是一个未完成的任务',category: 'design'), Task(content: '这是一个想要被完成的任务', category: 'coding'), Task()];
   List<Task> finishedTasks = [Task(finished: true)];
 
   Task getCurrentTask(index) {

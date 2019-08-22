@@ -2,49 +2,14 @@ import 'package:base_form/model/task.dart';
 import 'package:base_form/widgets/task_card.dart';
 import 'package:flutter/material.dart';
 
-class TaskList extends StatefulWidget {
-  @override
-  _TaskListState createState() => _TaskListState();
-}
+class TaskList extends StatelessWidget {
+  final List<Task> unFinishedTasks;
+  final List<Task> finishedTasks;
+  final Function toggleTask;
+  final Function removeTask;
+  final Function getCurrentTask;
 
-class _TaskListState extends State<TaskList> {
-  List<Task> unFinishedTasks = [Task(content: '这是一个未完成的任务',category: 'design'), Task(content: '这是一个想要被完成的任务', category: 'coding'), Task()];
-  List<Task> finishedTasks = [Task(finished: true)];
-
-  Task getCurrentTask(index) {
-    if (index < unFinishedTasks.length) {
-      return unFinishedTasks[index];
-    }
-    return finishedTasks[index - unFinishedTasks.length];
-  }
-
-  toggleTask(index) {
-    final current = getCurrentTask(index);
-    current.toggleTask();
-    if (index < unFinishedTasks.length) {
-      setState(() {
-        unFinishedTasks.removeAt(index);
-        finishedTasks.add(current);
-      });
-    } else {
-      setState(() {
-        finishedTasks.removeAt(index - unFinishedTasks.length);
-        unFinishedTasks.add(current);
-      });
-    }
-  }
-
-  removeTask(index) {
-    if (index < unFinishedTasks.length) {
-      setState(() {
-        unFinishedTasks.removeAt(index);
-      });
-    } else {
-      setState(() {
-        finishedTasks.removeAt(index - unFinishedTasks.length);
-      });
-    }
-  }
+  TaskList(this.unFinishedTasks, this.finishedTasks, this.toggleTask, this.removeTask, this.getCurrentTask);
 
   @override
   Widget build(BuildContext context) {

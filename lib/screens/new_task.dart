@@ -1,3 +1,4 @@
+import 'package:base_form/model/task.dart';
 import 'package:flutter/material.dart';
 
 class NewTaskPane extends StatefulWidget {
@@ -75,7 +76,10 @@ class _NewTaskPaneState extends State<NewTaskPane> {
                       disabledElevation: 10.0,
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
                       child: Text("Add"),
-                      onPressed: () {},
+                      onPressed: () {
+                        Task task = new Task(content: _controller.text, category: category);
+                        Navigator.pop(context, task);
+                      },
                     ),
                   ),
                 ],
